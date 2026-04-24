@@ -51,7 +51,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           const db = new Date(b.year, b.month - 1, b.day).getTime()
           return db - da
         })
-        .slice(0, 20),
+        .slice(0, 100),
+      allTrades: records.sort((a, b) => new Date(b.year, b.month-1, b.day).getTime() - new Date(a.year, a.month-1, a.day).getTime()),
     })
   } catch (err) {
     console.error(err)
